@@ -1,0 +1,50 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: msa-practice
+  namespace: default
+  selfLink: /api/v1/namespaces/default/services/msa-practice
+  uid: d2c790ca-a469-480e-b79d-ecb8adbfdc4d
+  resourceVersion: '11282'
+  creationTimestamp: '2020-09-22T16:16:05Z'
+  labels:
+    app: msa-practice
+  managedFields:
+    - manager: kubectl-expose
+      operation: Update
+      apiVersion: v1
+      time: '2020-09-22T16:16:05Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:app': {}
+        'f:spec':
+          'f:externalTrafficPolicy': {}
+          'f:ports':
+            .: {}
+            'k:{"port":8080,"protocol":"TCP"}':
+              .: {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+          'f:selector':
+            .: {}
+            'f:app': {}
+          'f:sessionAffinity': {}
+          'f:type': {}
+spec:
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 31437
+  selector:
+    app: msa-practice
+  clusterIP: 10.98.105.7
+  type: LoadBalancer
+  sessionAffinity: None
+  externalTrafficPolicy: Cluster
+status:
+  loadBalancer: {}
