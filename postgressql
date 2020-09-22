@@ -1,0 +1,76 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: postgresql-1600794873
+  namespace: default
+  selfLink: /api/v1/namespaces/default/services/postgresql-1600794873
+  uid: 73f14ce5-9abb-44ef-bf10-d0c35686127f
+  resourceVersion: '14474'
+  creationTimestamp: '2020-09-22T17:14:35Z'
+  labels:
+    app.kubernetes.io/instance: postgresql-1600794873
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: postgresql
+    helm.sh/chart: postgresql-9.7.0
+  annotations:
+    meta.helm.sh/release-name: postgresql-1600794873
+    meta.helm.sh/release-namespace: default
+  managedFields:
+    - manager: Go-http-client
+      operation: Update
+      apiVersion: v1
+      time: '2020-09-22T17:14:35Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:meta.helm.sh/release-name': {}
+            'f:meta.helm.sh/release-namespace': {}
+          'f:labels':
+            .: {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/managed-by': {}
+            'f:app.kubernetes.io/name': {}
+            'f:helm.sh/chart': {}
+        'f:spec':
+          'f:ports':
+            .: {}
+            'k:{"port":5432,"protocol":"TCP"}':
+              .: {}
+              'f:name': {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+          'f:selector':
+            .: {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/name': {}
+            'f:role': {}
+          'f:sessionAffinity': {}
+    - manager: dashboard
+      operation: Update
+      apiVersion: v1
+      time: '2020-09-22T17:29:21Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:externalTrafficPolicy': {}
+          'f:type': {}
+spec:
+  ports:
+    - name: tcp-postgresql
+      protocol: TCP
+      port: 5432
+      targetPort: tcp-postgresql
+      nodePort: 32208
+  selector:
+    app.kubernetes.io/instance: postgresql-1600794873
+    app.kubernetes.io/name: postgresql
+    role: master
+  clusterIP: 10.104.72.206
+  type: NodePort
+  sessionAffinity: None
+  externalTrafficPolicy: Cluster
+status:
+  loadBalancer: {}
