@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController
 class HelloController(private val userService: UserService) {
     @GetMapping("/hello")
     fun hello(@RequestParam(defaultValue = "World") name: String): String {
-        return "Hello $name!"
+        var message = userService.getMessage()
+        return "Hello $message!"
     }
 }
