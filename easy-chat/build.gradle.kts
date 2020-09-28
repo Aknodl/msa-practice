@@ -25,7 +25,6 @@ dependencies {
     implementation(project(":platform-common"))
 
     implementation("org.springframework.boot:spring-boot-starter-actuator")
-    implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
     implementation("org.springframework.boot:spring-boot-starter-hateoas") {
         exclude(group = "org.springframework", module = "spring-webmvc")
         exclude(group = "org.springframework.boot", module = "spring-boot-starter-tomcat")
@@ -40,11 +39,10 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
     implementation("org.springframework.cloud:spring-cloud-starter-kubernetes-all")
     implementation("org.springframework.cloud:spring-cloud-starter-circuitbreaker-reactor-resilience4j")
+    implementation("org.springframework.kafka:spring-kafka")
+    implementation("io.projectreactor.kafka:reactor-kafka")
+    implementation("org.springframework.boot:spring-boot-starter-rsocket")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
-    runtimeOnly("com.h2database:h2")
-    runtimeOnly("io.r2dbc:r2dbc-h2")
-    runtimeOnly("io.r2dbc:r2dbc-postgresql")
-    runtimeOnly("org.postgresql:postgresql")
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
